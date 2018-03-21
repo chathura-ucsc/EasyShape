@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Create Shapes";
+}
+
+@Styles.Render("~/Content/create-shapes")
+<div class="jumbotron">
+    Draw Shapes
+</div>
+
+<div class="row input-area">
+    <div class="form-group">
+        Please enter what you want to draw in the following format.<br />
+        "<i>Draw a(n) <b>shape</b> with a(n) <b>measurement</b> of <b>amount</b> (and a(n) <b>measurement</b> of <b>amount</b></i>" <br />
+        All the measurements are in pixels for 2D shapes. 3D shapes measurements can be any unit(m,cm etc)<br />
+        Ex:
+        <ul>
+            <li><b>Draw an octagon with a side length of 200</b></li>
+            <li><b>Draw an isosceles triangle with a height of 200 and a width of 100</b></li>
+        </ul>
+        <textarea class="form-control" id="simpleCommand" name="simpleCommand" rows="5" onclick="CreateShapes.ResetMessage();"></textarea>
+        <div id="message" class="message-area" hidden></div>
+    </div>
+
+    <button id="submit" class="btn btn-primary" onclick="CreateShapes.SendCommand();">Draw</button>
+</div>
+@Scripts.Render("~/bundles/3dshapes")
+<canvas id="shape" class="canvas" resize> Your browser does not support the HTML 5 Canvas. </canvas>
+
+@Scripts.Render("~/bundles/2dshapes")
+@Scripts.Render("~/bundles/shapes")
+
